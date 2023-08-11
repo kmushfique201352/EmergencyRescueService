@@ -1,0 +1,61 @@
+body, h1, p {
+    margin: 0;
+    padding: 0;
+    background-color: aqua;
+    height: 100%;
+    width: 100%;
+    background-image: linear-gradient(90deg,#293145,#454955,#293145);
+    background-size: 600% 600%;
+    animation: bgAnimatedGradient 2s infinite linear;
+  }
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  @keyframes bgAnimatedGradient{
+    0%{
+        background-position: 0 0%;
+    }
+    100%{
+        background-position: 100% 0;
+    }
+  }
+  .image{
+    position: absolute;
+    width: auto;
+    overflow: hidden; 
+    border-radius: 90px;
+  }
+.image img{
+    display: block;
+    flex-direction: column;
+    align-items: center;
+    width: auto;
+    height: 180px;
+    margin-bottom: 300px;
+}
+.text{
+    margin-top: 20px;
+    font-size: 35px;
+    color: #f0f0f0;
+    text-align: center;
+}
+/* styles.css */
+.bloodbutton {
+    margin-top: 300px;
+    width: 70px;
+    height: 100px;
+    color: aliceblue;
+    position: absolute;
+    background-color: #a22e2e;
+    background-image: linear-gradient(90deg,#a22e2e,#a86c6c,#a22e2e);
+    background-size: 600% 600%;
+    animation: bgAnimatedGradient 2s infinite linear;
+    border-radius: 50%;
+}
+
+

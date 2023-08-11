@@ -1,0 +1,205 @@
+body, h1, p {
+    margin: 0;
+    padding: 0;
+    background-color: aqua;
+    height: 100%;
+    width: 100%;
+    background-image: linear-gradient(90deg,#293145,#454955,#293145);
+    background-size: 600% 600%;
+    animation: bgAnimatedGradient 2s infinite linear;
+  }
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  @keyframes bgAnimatedGradient{
+    0%{
+        background-position: 0 0%;
+    }
+    100%{
+        background-position: 100% 0;
+    }
+  }
+.backpage{
+    background-color: #f0f0f030;
+    width: 300px;
+    height: 620px;
+    border-radius: 20px;
+}
+.backpage {
+
+}
+.navi-cont2{
+    margin-top: 25px;
+    position: fixed;
+    display: flex;
+    top: 0;
+    }
+.back{
+    width: 120px;
+    background-color: #454955;
+    height: 35px;
+    margin: 10px;
+    padding: 4px;
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); 
+    border: 1px solid #3c3f4a;
+}
+.back,span,a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.back,img{
+    width: 15px;
+    height: 15px;
+}
+.top .next1{
+    margin-top: 100px;
+    color: #f0f0f0;
+}
+.top .next2{
+    position: absolute;
+    font-size: 10px;
+    color: #f0f0f0;
+    margin-left: 10px;
+    align-items: start;
+}
+.grop1{
+    margin: 15px;
+    width: auto;
+    height: 20px;
+    /* background-color: #293145; */
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.grop1 .item{
+    display: flex;
+    margin: 5px;
+    padding: 2px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    width: 40px;
+    height: 30px;
+    font-size: 20px;
+    background-color: #ffffff;
+}
+.grop1 .item:hover{
+    background-color: #3c3f4a;
+    color: #f0f0f0;
+}
+.next3{
+    font-size: 10px;
+    color: #f0f0f0;
+    margin-top: 70px;
+    position: absolute;
+    margin-left: 10px;
+    align-items: start;
+}
+.grop2{
+    display: flex;
+    margin-top: 105px;
+    padding: 2px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    width: auto;
+    height: auto;
+}
+.grop2 .item{
+    display: flex;
+    margin: 5px;
+    padding: 2px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    width: 100px;
+    height: 25px;
+    font-size: 13px;
+    font-weight: bold;
+    background-color: #ffffff;
+}
+.grop2 .item:hover{
+    background-color: #3c3f4a;
+    color: #f0f0f0;
+}
+.next4{
+    font-size: 10px;
+    color: #f0f0f0;
+    margin-top: 10px;
+    position: absolute;
+    margin-left: 10px;
+    align-items: start;
+}
+.grop3{
+    display: flex;
+    margin-top: 30px;
+    padding: 2px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    width: auto;
+    height: auto;
+}
+.grop3 .item{
+    display: flex;
+    margin: 5px;
+    padding: 2px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    width: 100px;
+    height: 25px;
+    font-size: 13px;
+    font-weight: bold;
+    background-color: #ffffff;
+}
+.grop3 .item:hover{
+    background-color: #3c3f4a;
+    color: #f0f0f0;
+}
+.Age{
+    font-size: 10px;
+    color: #f0f0f0;
+    margin-top: 15px;
+    position: absolute;
+    margin-left: 10px;
+    align-items: start;
+}
+.grop4{
+    display: flex;
+    margin-top: 11px;
+    margin-left: 80px;
+    padding: 2px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    width: auto;
+    height: auto;
+}
+.submit{
+    width: 300px;
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+}
+.submit button{
+    width: 200px;
+    height: 40px;
+    border-radius: 10px;
+    font-size: 17px;
+}
+.submit a{
+    text-decoration: none;
+    color: inherit;
+}
