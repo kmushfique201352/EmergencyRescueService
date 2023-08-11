@@ -1,0 +1,288 @@
+body, h1, p {
+    margin: 0;
+    padding: 0;
+    background-color: aqua;
+    height: 100%;
+    width: 100%;
+    background-image: linear-gradient(90deg,#293145,#454955,#293145);
+    background-size: 600% 600%;
+    animation: bgAnimatedGradient 2s infinite linear;
+  }
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+/* edit btn */
+.navi-cont2{
+    position: fixed;
+    display: flex;
+    top: 0;
+    }
+.back{
+    width: 120px;
+    background-color: #454955;
+    height: 35px;
+    margin: 10px;
+    padding: 4px;
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); 
+    border: 1px solid #3c3f4a;
+}
+.back,span,a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.back,img{
+    width: 15px;
+    height: 15px;
+}
+.editProfile{
+    width: 60px;
+    background-color: #454955;
+    height: 17px;
+    margin: 10px;
+    margin-left: 216px;
+    border-radius: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); 
+    border: 1px solid #3c3f4a;
+}
+.editProfile img{
+    width: 10px;
+    height: 10px;
+}
+.editProfile,span{
+    display: flex;
+    font-size: 8px;
+    padding-left: 4px;
+    color: #bebebe;
+    align-items: center;
+    justify-content: center;
+}
+/* profile navi */
+.navi-cont{
+    position: absolute;
+    display: flex;
+    margin-bottom: 450px;
+}
+.round{
+    display: flex;
+    width: 300px;
+    background-color: #454955;
+    height: 55px;
+    border-radius: 30px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); 
+    border: 1px solid #3c3f4a;
+}
+.navi-cont img{
+    margin-top: 0.4px;
+    border: 1px solid #ffffff;
+    border-radius: 50%;
+    width: 53px;
+    height: 53px;
+}
+.navi-cont .info{
+    margin-right: 66px;
+    margin-top: 10px;
+    margin-left: 20px;
+}
+.navi-cont .info .name{
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    margin-bottom: 3px;
+    font-size: 15px;
+}
+.navi-cont .info .address{
+    display: flex;
+    margin-left: 5px;
+    justify-content: start;
+    align-items: start;
+    font-size: 7px;
+}
+@keyframes bgAnimatedGradient{
+    0%{
+        background-position: 0 0%;
+    }
+    100%{
+        background-position: 100% 0;
+    }
+  }
+  /* image */
+  .navi-cont3{
+    position: relative;
+    display: flex;
+    margin-right: 200px;
+    margin-bottom: 230px;
+}
+.round2{
+    display: block;
+    width: 80px;
+    background-color: #454955;
+    height: 65px;
+    border-radius: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); 
+    border: 1px solid #3c3f4a;
+}
+.round2 img{
+    width: 35px;
+    height: 35px;
+    margin-top: 10px;
+    margin-left: 24px;
+}
+.round2 span{
+    
+}
+  /* tracker */
+  .navi-cont4{
+    position: absolute;
+    display: flex;
+    margin-bottom: 50px;
+}
+.round3{
+    display: block;
+    width: 300px;
+    background-color: #454955;
+    height: 95px;
+    border-radius: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); 
+    border: 1px solid #3c3f4a;
+}
+.round3 span{
+    font-size: 15px;
+    margin-top: 10px;
+    margin-right: 220px;
+}
+.round4{
+    display: flex;
+    margin-top: 10px;
+    margin-left: 10px;
+    width: 280px;
+    background-color: #3f414a;
+    height: 45px;
+    border-radius: 60px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); 
+    border: 1px solid #3c3f4a;
+}
+.round4 span{
+    font-size: 10px;
+}
+.round5{
+    margin-top: 2px;
+    margin-left: 1px;
+    width: 40px;
+    background-color: #454955;
+    height: 40px;
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); 
+    border: 1px solid #3c3f4a;
+}
+  /* features Option */
+  .navi-cont5{
+    position: absolute;
+    display: flex;
+    /* background-color: #eef1fc; */
+    width: 300px;
+    height: 300px;
+    margin-top: 352px;
+    flex-wrap: wrap
+
+}
+.navi-cont5 span{
+    display: flex;
+    flex-direction: column;
+    font-size: 13px;
+    margin-left: 6px;
+    margin-top: 80px;
+    align-items: center;
+}
+.item-1{
+    width: 90px;
+    height: 120px;
+    font-size: 10px;
+
+    background-image: url('C:/Users/mdkha/Documents/GitHub/EmergencyRescueService/images/BookAmbulance.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    
+    border-radius: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); 
+    border: 1px solid #3c3f4a;
+}
+.item-2{
+    width: 206px;
+    height: 150px;
+
+    background-image: url('C:/Users/mdkha/Documents/GitHub/EmergencyRescueService/images/Fire Service.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+
+    font-size: 10px;
+    background-color: #3f414a;
+    border-radius: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); 
+    border: 1px solid #3c3f4a;
+}
+.item-3{
+    width: 90px;
+    height: 150px;
+    font-size: 10px;
+
+    background-image: url('C:/Users/mdkha/Documents/GitHub/EmergencyRescueService/images/BloodBank.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+
+    background-color: #3f414a;
+    border-radius: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); 
+    border: 1px solid #3c3f4a;
+}
+.item-4{
+    width: 97px;
+    height: 120px;
+    font-size: 10px;
+    margin-top: 30px;
+
+    background-image: url('C:/Users/mdkha/Documents/GitHub/EmergencyRescueService/images/nearestPolice.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+
+    background-color: #3f414a;
+    border-radius: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); 
+    border: 1px solid #3c3f4a;
+}
+.item-5{
+    width: 97px;
+    height: 120px;
+    font-size: 10px;
+    margin-top: 30px;
+
+    background-image: url('C:/Users/mdkha/Documents/GitHub/EmergencyRescueService/images/emergencyAmbulance.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+
+    background-color: #3f414a;
+    border-radius: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); 
+    border: 1px solid #3c3f4a;
+}
+.navi-cont6{
+    position: relative;
+    display: flex;
+    /* background-color: #eef1fc; */
+    width: 300px;
+    height: 300px;
+    margin-top: -28px;
+    flex-wrap: wrap
+
+}
