@@ -178,8 +178,9 @@ margin-bottom: 550px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); 
     border: 1px solid #3c3f4a;
 }
-.round2,span{
+.round2,span,a{
     display: flex;
+    text-decoration: none;
     font-size: 10px;
     color: #bebebe;
     align-items: center;
