@@ -1,0 +1,100 @@
+body, h1, p {
+    margin: 0;
+    padding: 0;
+    background-color: aqua;
+    height: 100%;
+    width: 100%;
+    background-image: linear-gradient(90deg,#293145,#454955,#293145);
+    background-size: 600% 600%;
+    animation: bgAnimatedGradient 2s infinite linear;
+  }
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+
+  @keyframes bgAnimatedGradient{
+    0%{
+        background-position: 0 0%;
+    }
+    100%{
+        background-position: 100% 0;
+    }
+  }
+
+
+
+.registration-container {
+    width: fit-content;
+    height: fit-content;
+    text-align: center;
+}
+h1 {
+    color: white;
+    font-size: 15px;
+    margin-bottom: 50px;
+}
+input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 25px;
+    border: 1px solid black;  /* Changed border color to black */
+    font-size: 14px;
+    background-color: transparent;  /* Set background to transparent */
+}
+
+button {
+    width: 100%;
+    padding: 10px 20px;
+    border-radius: 20px;
+    border: 1px solid black;  /* Added black border */
+    cursor: pointer;
+    background-color: #293145be;
+    color: white;
+    margin-top: 10px;
+    font-size: 16px;
+}
+
+
+button:hover {
+    background-color: #454955;
+}
+.or-divider {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.or-divider hr {
+    flex-grow: 1;
+    border: none;
+    height: 1px;
+    background-color: white;
+}
+
+.or-divider span {
+    padding: 0 10px;
+    color: white;
+}
+
+.social-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.login-reminder a{
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+    text-decoration: none;
+    color: white;
+    font-size: 14px;
+}
