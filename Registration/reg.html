@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="regStyle.css" />
+    <title>Register</title>
+</head>
+
+<body>
+    <div class="registration-container">
+        <h1>Create an account</h1>
+        <form action="your_server_endpoint_here" method="post">
+            <input type="text" placeholder="Enter your username" required>
+            <input type="email" placeholder="Enter your Email" required>
+            <input type="tel" placeholder="Enter your phone number" pattern="[0-9]{10}" required>
+            <input type="password" placeholder="Enter your Password" required>
+            <input type="password" placeholder="Repeat your password" required>
+        </form>
+        <div class="navi-cont">
+            <button>Sign up</button>
+        </div>
+        <div class="or-divider">
+            <hr><span>Or With</span><hr>
+        </div>
+        <div class="social-buttons">
+            <button>Sign up with Facebook</button>
+            <button>Sign up with Google</button>
+        </div>
+        <div class="login-reminder">
+            <a href="../Login/login.html">Already have an account?</a>
+        </div>
+    </div>
+</body>
+
+</html>

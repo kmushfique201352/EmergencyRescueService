@@ -1,0 +1,134 @@
+body, h1, p {
+    margin: 0;
+    padding: 0;
+    background-color: aqua;
+    height: 100%;
+    width: 100%;
+    background-image: linear-gradient(90deg,#293145,#454955,#293145);
+    background-size: 600% 600%;
+    animation: bgAnimatedGradient 2s infinite linear;
+  }
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+
+  @keyframes bgAnimatedGradient{
+    0%{
+        background-position: 0 0%;
+    }
+    100%{
+        background-position: 100% 0;
+    }
+  }
+
+
+
+/* ... [Your existing styles] ... */
+
+/* Login specific styles */
+.login-container {
+    margin-left: 50px;
+    width: fit-content;
+    height: fit-content;
+    padding: 20px;
+    text-align: center;
+    position: relative;
+}
+
+.login-title {
+    color: white;
+    margin-top: 150px;
+    font-size: 2em;
+    margin-bottom:50px;
+    text-decoration: underline;
+    text-decoration-color: black;
+}
+
+.input-container {
+    display: flex;
+    padding: 20px;
+    background-color: #293145;
+    width: 300px;
+    border-radius: 20px;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.input-wrapper {
+    position: relative;
+}
+
+.input-wrapper label {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    padding: 10px;
+    font-size: 14px;
+    transform: translateY(-50%);
+    color: white;
+}
+
+.input-wrapper input {
+    width: 180px;
+    padding: 10px 35px 10px 80px;
+    border-radius: 25px;
+    border-bottom: 1px solid black;
+    font-size: 14px;
+    background-color: transparent;
+}
+
+.input-wrapper i {
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: white;
+    font-size: 20px;
+}
+
+.forgot-password {
+    text-align: left;
+    margin-top: 10px;
+}
+
+.forgot-password a {
+    color: white;
+    text-decoration: none;
+    font-size: 12px;
+}
+
+.forgot-password a:hover {
+    text-decoration: underline;
+}
+button {
+    width: 100%;
+    padding: 10px 20px;
+    border-radius: 20px;
+    border: 2px solid black;  /* Increased border thickness */
+    cursor: pointer;
+    background-color: #384878;
+    color: white;
+    margin-top: 20px;   /* Added some top margin */
+    font-size: 16px;
+    transition: background-color 0.3s ease;  /* Added transition for smoother hover effect */
+}
+
+button:hover {
+    background-color: #293145;
+    border-color: #fff;  /* Change border color on hover for a highlighting effect */
+}
+
+
+.signup-reminder a{
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+    text-decoration: none;
+    color: white;
+    font-size: 14px;
+}
