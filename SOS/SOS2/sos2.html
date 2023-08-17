@@ -1,0 +1,107 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../SOS2/sos2Style.css" />
+    <title>SOS Mode</title>
+    <script>
+        
+        
+    </script>
+</head>
+
+<body>
+    
+    <div class="navi-cont">
+        <div class="round">
+            <div class="info">
+                <span class="name">Khaled Md. Mushfique</span>
+                <span class="address">801, 6D, Modhumoti, RUAP, Uttara, Dhaka,1230</span>
+            </div>
+            <img src="../../images/img.jpg" alt="sample.jpg">
+        </div>
+    </div>
+
+    <div class="navi-cont2">
+        <div class="round2">
+            <img src="../../images/gps.png" alt="">
+            <span><a href="#">GPS ON</a></span>
+        </div>
+    </div>
+
+    <div class="bg-container">
+        <div class="circle-button5">
+            <div class="circle-button4">
+                <div class="circle-button3">
+                    <div class="circle-button2">
+                        <button class="circle-button" onclick="startCountdown()">
+                            <h3>5s</h3>
+                            <h2>Press to call</h2>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <audio id="buzzerAudio" src="../../SOS/SOS2/military-alarm-129017.mp3" preload="auto"></audio>
+    
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+
+            window.startCountdown = function() {
+                let h3Element = document.querySelector('.circle-button h3');
+                let h2Element = document.querySelector('.circle-button h2');
+                let buzzerSound = document.getElementById('buzzerAudio');
+                
+                let countdownValue = 5;
+                let callingStates = ["Calling.", "Calling..", "Calling..."];
+                let callingIndex = 0;
+            
+                let interval = setInterval(function() {
+                    countdownValue--;
+                    h3Element.innerText = countdownValue + "s";
+            
+                    callingIndex = (callingIndex + 1) % callingStates.length;
+                    h2Element.innerText = callingStates[callingIndex];
+                    
+                    if (countdownValue <= 0) {
+                        clearInterval(interval);
+                        buzzerSound.play();
+                    }
+                }, 1000);
+            }
+        
+        });
+        
+        
+    </script>
+
+    <div class="navi-cont3">
+        <span>01400249477</span>
+        <div class="round3">
+            <img src="../../images/gps.png" alt="">
+            <!-- <span><a href="#">...</a></span> -->
+        </div>
+    </div>
+    <div class="navi-cont4">
+        <span>01400249477</span>
+        <div class="round4">
+            <img src="../../images/gps.png" alt="">
+            <!-- <span><a href="#">...</a></span> -->
+        </div>
+    </div>
+    <div class="navi-cont5">
+        <span>01400249477</span>
+        <div class="round5">
+            <img src="../../images/gps.png" alt="">
+            <!-- <span><a href="#">...</a></span> -->
+        </div>
+    </div>
+</body>
+
+</html>

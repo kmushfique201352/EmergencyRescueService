@@ -10,36 +10,34 @@
 <body>
     <div class="container">
         <div class="profile-heading">
-            <h1>Create Profile</h1>
+            <p>Create Profile</p>
         </div>
         <div class="input-form">
-            <form action="#">
+            <form action="profile.php" method="post" enctype="multipart/form-data" id="myform">
                 <div class="blood-height-weight-container">
                     <div class="blood_type ">
                         <input type="text" class="input-field" id="blood_type" placeholder="Enter Your Blood Type" />
                     </div>
                     <div class="height ">
-                        <input type="text" class="input-field" id="height" placeholder="Enter Your Height" />
+                        <input type="text" class="input-field" id="height" placeholder="Enter Your Height in cm" />
                     </div>
                     <div class="weight ">
-                        <input type="text" class="input-field" id="weight" placeholder="Enter Your Weight" />
+                        <input type="text" class="input-field" id="weight" placeholder="Enter Your Weight in kg" />
                     </div>
                 </div>
                 <div class="Location-profile-picture-container">
                     <div class="addlocation-container">
                         <div class="location-heading">
                             <h4>Add Location</h4>
+                            <input type="hidden" id="locationInput" name="location">
                         </div>
                         <div class="turn-on-off-btn">
                             <div class="turnon-btn">
-                                <a href="#">Turn On</a>
-                                
-                            </div>
-                            <div class="turnoff-btn">
-                                <a href="#">Turn Off</a>
+                                <button type="button">Turn On</button>
                             </div>
                         </div>
                     </div>
+                    <input type="file" id="profile-pic-input" style="display: none;">
                     <div class="profile-picture-container">
                         <div class="camera-icon">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
@@ -49,19 +47,98 @@
                         </div>
                         <div class="picture-heading">
                             <h4>Add Profile picture</h4>
+                            <input type="hidden" id="photoInput" name="photo">
                         </div>
                     </div>
+                    <script>
+                        document.addEventListener("DOMContentLoaded", function() {
+                            const picContainer = document.querySelector('.profile-picture-container');
+                            const fileInput = document.getElementById('profile-pic-input');
+                        
+                            picContainer.addEventListener('click', function() {
+                                fileInput.click();
+                            });
+                        
+                            fileInput.addEventListener('change', function() {
+                                if (this.files && this.files[0]) {
+                                    const file = this.files[0];
+                        
+                                    if (file.type.startsWith('image/')) {  
+                                        const reader = new FileReader();
+                        
+                                        reader.onload = function(e) {
+                                            picContainer.style.backgroundImage = `url(${e.target.result})`;
+                                            picContainer.style.backgroundSize = 'cover';
+                                            picContainer.style.backgroundPosition = 'center';
+                                            picContainer.style.border = '1px solid #000'; 
+                                        }
+                        
+                                        reader.readAsDataURL(file);
+                                    } else {
+                                        alert('Please select a valid image.');
+                                    }
+                                }
+                            });
+                        });
+                        
+                    </script>
                 </div>
+                <script>
+                    document.addEventListener("DOMContentLoaded", function() {
+                        const turnOnButton = document.querySelector('.turnon-btn button');
+                        const locationHeading = document.querySelector('.location-heading h4');
+                    
+                        turnOnButton.addEventListener('click', function() {
+                            if ("geolocation" in navigator) {
+                                navigator.geolocation.getCurrentPosition(function(position) {
+                                    let latitude = position.coords.latitude;
+                                    let longitude = position.coords.longitude;
+                                    let locationString = "Latitude: " + latitude + ", Longitude: " + longitude;
+                    
+                                    locationHeading.textContent = locationString;
+                    
+                                    turnOnButton.style.display = "none";
+                    
+                                    saveLocationToServer(locationString);
+                    
+                                }, function(error) {
+                                    alert("Error occurred: " + error.message);
+                                });
+                            } else {
+                                alert("Geolocation is not supported by your browser.");
+                            }
+                        });
+                    });
+                    function saveLocationToServer(locationString) {
+                        let xhr = new XMLHttpRequest();
+                        xhr.open("POST", "your_server_endpoint_here", true);
+                        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                        xhr.onreadystatechange = function() {
+                            if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
+                                console.log(this.responseText);
+                            }
+                        };
+                        xhr.send("location=" + locationString);
+                    }
+                    
+                </script>
                 <div class="gender-container">
                     <div class="gender-heading">
                         <h3>Enter Gender</h3>
                     </div>
                     <div class="type-of-gender">
                         <ul>
-                            <li><a href="#" id="male" class="gender-btn"></a>Male</li>
-                            <li><a href="#" id="female" class="gender-btn"></a>Female</li>
+                            <li>
+                                <input type="radio" name="gender" value="male" id="male" class="gender-btn">
+                                <label for="male">Male</label>
+                            </li>
+                            <li>
+                                <input type="radio" name="gender" value="female" id="female" class="gender-btn">
+                                <label for="female">Female</label>
+                            </li>
                         </ul>
                     </div>
+                    
                 </div>
                 <div class="emergency-container">
                     <div class="emergency-contacts-heading">
@@ -69,21 +146,41 @@
                     </div>
                     <div class="contact-field">
                         <div class="contacts ">
-                            <input type="text" class="input-field" id="blood_type" placeholder="Enter Phone Number" />
+                            <input type="text" class="input-field" id="phn1" placeholder="Enter Phone Number" />
                         </div>
                         <div class="contacts ">
-                            <input type="text" class="input-field" id="blood_type" placeholder="Enter Phone Number" />
+                            <input type="text" class="input-field" id="phn2" placeholder="Enter Phone Number" />
                         </div>
                         <div class="contacts ">
-                            <input type="text" class="input-field" id="blood_type" placeholder="Enter Phone Number" />
+                            <input type="text" class="input-field" id="phn3" placeholder="Enter Phone Number" />
                         </div>
                     </div>
                 </div>
                 <div class="btn">
-                    <a href="#">Add profile</a>
+                    <button type="submit" name="submit">Add profile</button>
                 </div>
             </form>
+            <script>
+                document.addEventListener("DOMContentLoaded", function() {
+                    const form = document.getElementById('userInfoForm');
+                    const locationElem = document.querySelector('.location-heading h4');
+                    const picContainer = document.querySelector('.profile-picture-container');
+                    const locationInput = document.getElementById('locationInput');
+                    const photoInput = document.getElementById('photoInput');
+                
+                    form.addEventListener('submit', function(e) {
+                        locationInput.value = locationElem.innerText;
+                        let backgroundImage = picContainer.style.backgroundImage;
+                        let photoURL = backgroundImage.slice(5, -2); 
+                        photoInput.value = photoURL;
+                    });
+                });
+                
+            </script>
         </div>
     </div>
+    <script>
+        src="../Profile/javascript.js"
+    </script>
 </body>
 </html>
