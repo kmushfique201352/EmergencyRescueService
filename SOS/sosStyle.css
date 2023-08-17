@@ -31,7 +31,14 @@
     font-size: 1rem;
     cursor: pointer;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, background-color 0.2s;
   }
+
+.circle-button:active {
+    transform: scale(0.96);
+}
+
+
   .circle-button,h3 {
     text-align: center;
     font-family: 'Roboto',sans-serif;
@@ -44,6 +51,10 @@
     font-size: 15px;
     color: rgb(224, 193, 193);
   }
+  .button-pressed1 {
+    background-color: #b11f214f;
+  }
+  
   @keyframes bgAnimatedGradient{
     0%{
         background-position: 0 0%;
@@ -201,4 +212,52 @@ margin-bottom: 550px;
     color: #bebebe;
     align-items: center;
     justify-content: center;
+}
+
+
+.circle-button2 {
+    transition: transform 0.2s;
+}
+
+.circle-button2:active {
+    transform: scale(0.9);
+}
+.circle-button3 {
+  transition: transform 0.2s;
+}
+
+.circle-button3:active {
+  transform: scale(0.9);
+}
+.circle-button4 {
+  transition: transform 0.2s;
+}
+
+.circle-button4:active {
+  transform: scale(0.9);
+}
+.circle-button5 {
+  transition: transform 0.2s;
+}
+
+.circle-button5:active {
+  transform: scale(0.9);
+}
+
+
+
+.button-pressed2 {
+  background-color: rgba(123, 48, 57, 0.349);
+}
+.button-pressed3 {
+  background-color: rgba(232, 234, 245, 0.132);
+}
+.button-pressed4 {
+  background-color: rgba(137, 141, 176, 0.21);
+}
+.button-pressed5 {
+  background-color: rgba(198, 25, 25, 0.317);
+  background-image: linear-gradient(90deg,rgba(198, 25, 25, 0.317),rgb(198, 25, 25),rgba(198, 25, 25, 0.317));
+    background-size: 600% 600%;
+    animation: bgAnimatedGradient 2s infinite linear;
 }

@@ -23,14 +23,16 @@ body{
 
 .container{
     display: flex;
+    height: fit-content;
     flex-direction: column;
     justify-content: center;
 }
 
 .profile-heading{
     text-align: center;
-    margin-top: 40px;
-    margin-bottom: 30px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 16px;
 }
 
 .blood-height-weight-container{
@@ -40,10 +42,10 @@ body{
 }
 
 .input-field{
-    padding-left: 20px;
-    margin-bottom: 15px;
+    padding-left: 10px;
+    margin-bottom: 10px;
     width: 300px;
-    height: 40px;
+    height: 30px;
     border: 1px solid black;
     border-radius: 15px;
     background-color: #293145;
@@ -71,22 +73,27 @@ body{
 }
 
 .turn-on-off-btn{
+    width: 80px;
     margin: 10px auto;
+    font-size: 12px;
     position: relative;
 }
 
 .turnon-btn{
-    width: 65px;
-    height: 23px;
+    width: fit-content;
+    height: fit-content;
+    margin-left: 13px;
     background-color: #293145c1;
     border-radius: 10px;
     
 }
 
-.turnon-btn a{
-    padding: 3px 9px;
+.turnon-btn button{
     text-decoration: none;
     color: white;
+    padding: 2px;
+    border-radius: 5px;
+    background-color: #293145c1;
     position: absolute;
     top: 0;
 }
@@ -122,17 +129,17 @@ body{
     font-size: 17px;
 }
 
-.type-of-gender{
+.type-of-gender {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.type-of-gender ul{
+.type-of-gender ul {
     margin-bottom: 20px;
 }
 
-.type-of-gender ul li{
+.type-of-gender ul li {
     width: 110px;
     height: 28px;
     color: black;
@@ -143,23 +150,43 @@ body{
     border-radius: 5px;
     list-style-type: none;
     text-align: center;
-    padding-top: 3px;
     margin: 0px 5px;
+    position: relative; 
 }
 
-.type-of-gender ul li a{
-    text-decoration: none;
+.type-of-gender .gender-btn {
+    display: none;
 }
 
-.type-of-gender ul li:hover{
+.type-of-gender ul li label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    cursor: pointer;
+    padding-top: 3px; 
+    width: 100%;
+    height: 100%;
+    display: block;
+    text-align: center;
+}
+
+.type-of-gender ul li:hover,
+.type-of-gender .gender-btn:checked + label {
     background-color: white;
 }
+
 
 .emergency-contacts-heading{
     margin-bottom: 15px;
 }
 
-.btn{
+.btn button{
+    font-size: 17px;
+    font-weight: bold;
+    text-decoration: none;
+    color: white;
     width: 300px;
     height: 30px;
     background-color: #455680ab;
@@ -167,11 +194,4 @@ body{
     text-align: center;
     margin: 20px auto 80px;
     padding-top: 4px;
-}
-
-.btn a{
-    font-size: 17px;
-    font-weight: bold;
-    text-decoration: none;
-    color: white;
 }

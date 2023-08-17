@@ -12,22 +12,24 @@
 <body>
     <div class="login-container">
         <h1 class="login-title">Login</h1>
+        <form action="login.php" method="post">
         <div class="input-container">
             <div class="input-wrapper">
                 <label for="username">Username</label>
-                <input type="text" id="username" required>
+                <input type="text" id="username" name="username" required>
                 <i class="fas fa-user" style="margin-right: 7px;"></i>
             </div>
             <div class="input-wrapper">
                 <label for="password">Password</label>
-                <input type="password" id="password" required>
+                <input type="password" id="password" name="password" required>
                 <i class="fas fa-lock" style="margin-right: 7px;"></i>
             </div>
             <div class="forgot-password">
                 <a href="#">Forgot password?</a>
             </div>
         </div>
-        <button>Login</button>
+        <button type="submit">Login</button>
+    </form>
         <div class="signup-reminder">
             <a href="../Registration/reg.html">Doesn't have an account?</a>
         </div>

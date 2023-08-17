@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,9 +6,69 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="sosStyle.css" />
+    <link rel="stylesheet" href="../SOS/sosStyle.css" />
     <title>SOS Mode</title>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            document.querySelector(".circle-button").addEventListener("click", function() {
+                this.classList.add('button-pressed1');
 
+                let h3Element = this.querySelector('h3');
+                let originalH3Text = h3Element.innerText;
+                h3Element.innerText = "Alert stating ...";
+
+                let h2Element = this.querySelector('h2');
+
+                let countdownValue = 5;
+                let interval = setInterval(function() {
+                    countdownValue--;
+                    h2Element.innerText = countdownValue + "s";
+                    if (countdownValue <= 0) {
+                        clearInterval(interval);
+                        h2Element.innerText = "5s";
+                        h3Element.innerText = originalH3Text;
+                        h2Element.parentElement.classList.remove('button-pressed1');
+
+                        window.location.href = "SOS2/sos2.html";
+                    }
+                }, 1000); 
+            });
+            document.querySelector(".circle-button2").addEventListener("click", function() {
+                var button = this;
+                button.classList.add("button-pressed2");
+        
+                setTimeout(function() {
+                    button.classList.remove("button-pressed2");
+                }, 5000);
+            });
+            document.querySelector(".circle-button3").addEventListener("click", function() {
+                var button = this;
+                button.classList.add("button-pressed3");
+        
+                setTimeout(function() {
+                    button.classList.remove("button-pressed3");
+                }, 5000);
+            });
+            document.querySelector(".circle-button4").addEventListener("click", function() {
+                var button = this;
+                button.classList.add("button-pressed4");
+        
+                setTimeout(function() {
+                    button.classList.remove("button-pressed4");
+                }, 5000);
+            });
+            document.querySelector(".circle-button5").addEventListener("click", function() {
+                var button = this;
+                button.classList.add("button-pressed5");
+        
+                setTimeout(function() {
+                    button.classList.remove("button-pressed5");
+                }, 5000);
+            });
+            
+        });
+        
+    </script>
 </head>
 
 <body>
@@ -55,8 +116,6 @@
             </div>
         </div>
     </div>
-
-
 </body>
 
 </html>

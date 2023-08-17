@@ -1,6 +1,6 @@
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,16 +11,16 @@
 <body>
     <div class="registration-container">
         <h1>Create an account</h1>
-        <form action="your_server_endpoint_here" method="post">
-            <input type="text" placeholder="Enter your username" required>
-            <input type="email" placeholder="Enter your Email" required>
-            <input type="tel" placeholder="Enter your phone number" pattern="[0-9]{10}" required>
-            <input type="password" placeholder="Enter your Password" required>
-            <input type="password" placeholder="Repeat your password" required>
-        </form>
+        <form action="reg.php" method="post">
+            <input type="text" name="username" placeholder="Enter your username" required>
+            <input type="email" name="email" placeholder="Enter your Email" required>
+            <input type="tel" name="phone" placeholder="Enter your phone number" pattern="[0-9]{11}" required>
+            <input type="password" name="password" placeholder="Enter your Password" required>
+            <input type="password" name="repeat_password" placeholder="Repeat your password" required>
         <div class="navi-cont">
-            <button>Sign up</button>
+            <button type="submit">Sign up</button>            
         </div>
+        </form>
         <div class="or-divider">
             <hr><span>Or With</span><hr>
         </div>
