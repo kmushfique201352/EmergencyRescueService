@@ -1,16 +1,74 @@
+<?php
+include '../connection.php';
+
+session_start();
+
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_SESSION['temp'])) {
+    
+    $username = htmlspecialchars($_SESSION['temp']['username']);
+    $email = htmlspecialchars($_SESSION['temp']['email']);
+    $phone = htmlspecialchars($_SESSION['temp']['phone']);
+    $hashed_password = $_SESSION['temp']['hashed_password'];
+
+    $bloodType = htmlspecialchars($_POST["bloodType"]);
+    $height = (int)$_POST["height"];
+    $weight = (int)$_POST["weight"];
+    $location = htmlspecialchars($_POST["location"]);
+    $gender = htmlspecialchars($_POST["gender"]);
+    $phn1 = htmlspecialchars($_POST["phn1"]);
+    $phn2 = htmlspecialchars($_POST["phn2"]);
+    $phn3 = htmlspecialchars($_POST["phn3"]);
+
+    $photoPath = "";
+
+    if (isset($_FILES['photo']) && $_FILES['photo']['error'] === UPLOAD_ERR_OK) {
+        $uploadDir = '../images/';
+        $fileExtension = pathinfo($_FILES['photo']['name'], PATHINFO_EXTENSION);
+
+        if (in_array($fileExtension, ['jpg', 'jpeg', 'png'])) {
+            $uploadFile = $uploadDir . time() . '.' . $fileExtension; 
+            
+            if (move_uploaded_file($_FILES['photo']['tmp_name'], $uploadFile)) {
+                $photoPath = $uploadFile;
+            } else {
+                echo "File could not be uploaded.";
+                exit;
+            }
+        } else {
+            echo "Invalid file type.";
+            exit;
+        }
+    }
+
+    try {
+        $stmt = $conn->prepare("UPDATE user SET username=?, email=?, phoneNumber=?, password_hash=?, bloodType=?, height=?, weight=?, location=?, photo=?, gender=?, phn1=?, phn2=?, phn3=? WHERE user_id=?");
+        $stmt->execute([$username, $email, $phone, $hashed_password, $bloodType, $height, $weight, $location, $photoPath, $gender, $phn1, $phn2, $phn3, $userId]);
+        
+        unset($_SESSION['temp']); 
+        header('Location: ../Features/editProfile.php');
+        exit;
+    } catch(PDOException $e) {
+        echo "There was an error updating your profile. Please try again later.";
+        
+    }
+} else {
+    echo "Invalid form submission or session data missing.";
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create Profile</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Edit Profile</title>
+    <link rel="stylesheet" href="../Features/editProfile.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
     <div class="container">
         <div class="profile-heading">
-            <p>Create Profile</p>
+            <p>Edit Profile</p>
         </div>
         <div class="input-form">
             <form action="profile.php" method="post" enctype="multipart/form-data" id="myform">
@@ -152,7 +210,7 @@
                     </div>
                 </div>
                 <div class="btn">
-                    <button type="submit" name="submit">Add profile</button>
+                    <button type="submit" name="submit">Update profile</button>
                 </div>
             </form>
             <script>

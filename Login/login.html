@@ -7,9 +7,28 @@
     <link rel="stylesheet" href="loginStyle.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"> <!-- Font Awesome for Icons -->
     <title>Login</title>
+    
+    <script type="text/javascript">
+        window.history.forward();
+        function preventBack() { 
+            window.history.forward(); 
+        }
+        setTimeout("preventBack()", 0);
+        window.onunload = function() { null };
+    </script>
 </head>
 
 <body>
+    <div class="list">
+        <a href="#"><span>Contacts</span></a>
+    </div>
+    <div id="contactsList" class="hidden">
+        
+        <p>CL1: XXX</p>
+        <p>CL2: XXX</p>
+        
+    </div>
+    
     <div class="login-container">
         <h1 class="login-title">Login</h1>
         <form action="login.php" method="post">
@@ -29,11 +48,39 @@
             </div>
         </div>
         <button type="submit">Login</button>
-    </form>
+        </form>
+        <div class="ai">
+            <input type="text" id="userInput" placeholder="Ask me anything">
+            <div id="botResponse" class="response"></div>
+            <button onclick="getBotResponse()">Ask</button>
+        </div>
+    <script>
+        function getBotResponse() {
+            const userInput = document.getElementById('userInput').value.toLowerCase(); 
+            let botResponse = "Sorry, I don't understand that."; 
+        
+            const answers = {
+                "how are you": "I'm just a bot, so I don't have feelings, but I'm functioning optimally!",
+                "what's your name": "I'm ChatBot, your friendly assistant.",
+                "how can i login": "Please enter your username and password in the fields provided and click on the login button.",
+            }
+        
+            for (let question in answers) {
+                if (userInput.includes(question)) {
+                    botResponse = answers[question];
+                    break;
+                }
+            }
+        
+            document.getElementById('botResponse').textContent = botResponse;
+        }
+        
+    </script>
         <div class="signup-reminder">
             <a href="../Registration/reg.html">Doesn't have an account?</a>
         </div>
     </div>
+    
 </body>
 
 </html>
