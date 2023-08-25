@@ -1,0 +1,81 @@
+/* Form container styles */
+.area {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 20vh;
+  background-color: aquamarine;
+}
+
+
+/* Submit button styles */
+.submit-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #007bff; /* Change to your preferred button color */
+  color: #ffffff; /* Change to your preferred text color */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: 20px;
+}
+
+/* Optional: Hover styles */
+.submit-button:hover {
+  background-color: #b90918; /* Change to your preferred hover color */
+}
+
+.numberArea {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: aquamarine;
+    height: 10vh;
+  }
+
+.numberButton{
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #007bff; /* Change to your preferred button color */
+  color: #ffffff; /* Change to your preferred text color */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.tel-link{
+    color: #ffffff;
+    text-decoration-line: none;
+}
+
+.pera{
+    color: red;
+    font-size: 20px;
+}
+
+.thanaNumberLabel {
+  font-size: 20px;
+  padding-right: 10px;
+}
+
+.fireserviceLabel {
+  font-size: 20px;
+  padding-right: 20px;
+}
+
+.ambulanceLabel {
+  font-size: 20px;
+  padding-right: 20px;
+}
+
+.ChooseLabel{
+  font-size: 20px;
+  padding-right: 20px;
+}
+
+.location{
+  font-size: 15px;
+  padding-right: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
