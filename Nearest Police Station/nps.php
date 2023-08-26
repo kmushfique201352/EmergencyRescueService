@@ -31,9 +31,7 @@
     .btn-fir:hover {
         background-color: #e64a19;
     }
-</style>
-
-
+    </style>
 </head>
 <body>
 
@@ -41,64 +39,41 @@
 
 <script>
     function initMap() {
-        const myLocation = {lat: 40.730610, lng: -73.935242};
-        
+        const myLocation = {lat: 23.7978829, lng: 90.44971};
+        const policeStationLocation = {lat: 23.7975500, lng: 90.423995};
+
         const map = new google.maps.Map(document.getElementById('map'), {
             center: myLocation,
             zoom: 15
         });
 
-        const request = {
-            location: myLocation,
-            radius: '5000',
-            type: ['fire_station']
-        };
+        // Create a red marker for My Location
+        new google.maps.Marker({
+            position: myLocation,
+            map: map,
+            title: 'My Location',
+            icon: 'http://maps.google.com/mapfiles/ms/icons/red-dot.png'
+        });
 
-        const service = new google.maps.places.PlacesService(map);
-        service.nearbySearch(request, callback);
-
-        function callback(results, status) {
-            if (status === google.maps.places.PlacesServiceStatus.OK) {
-                for (let i = 0; i < results.length; i++) {
-                    createMarker(results[i]);
-                }
+        // Create a circle marker for Police Station
+        new google.maps.Marker({
+            position: policeStationLocation,
+            map: map,
+            title: 'Police Station',
+            icon: {
+                path: google.maps.SymbolPath.CIRCLE,
+                scale: 8, // size
+                strokeColor: '#00F' // color
             }
-        }
-
-        function createMarker(place) {
-            const marker = new google.maps.Marker({
-                map: map,
-                position: place.geometry.location
-            });
-
-            google.maps.event.addListener(marker, 'click', function() {
-                const directionsService = new google.maps.DirectionsService();
-                const directionsRenderer = new google.maps.DirectionsRenderer();
-                directionsRenderer.setMap(map);
-                
-                const request = {
-                    origin: myLocation,
-                    destination: place.geometry.location,
-                    travelMode: 'DRIVING'
-                };
-
-                directionsService.route(request, function(result, status) {
-                    if (status == 'OK') {
-                        directionsRenderer.setDirections(result);
-                        const duration = result.routes[0].legs[0].duration.text;
-                        alert('Time required to reach: ' + duration);
-                    }
-                });
-            });
-        }
+        });
     }
-    
+
     window.onload = initMap;
 </script>
+
 <div class="bottom-container">
     <a href="../Nearest Police Station/Fir.html"><button class="btn-fir">FIR</button></a>
 </div>
-
 
 </body>
 </html>

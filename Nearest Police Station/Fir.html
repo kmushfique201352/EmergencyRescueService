@@ -11,18 +11,18 @@
 <body>
     <div class="fir-container">
         <h2>First Information Report (FIR)</h2>
-        <form action="nps.php" method="post">
-            <label for="complainant">Complainant Name:</label>
-            <input type="text" id="complainant" name="complainant" placeholder="Enter your name">
+        <form action="fir.php" method="POST">
+            <label for="complainant_name">Complainant Name:</label>
+            <input type="text" id="complainant_name" name="complainant_name" placeholder="Enter your name">
 
             <label for="address">Address:</label>
             <textarea id="address" name="address" placeholder="Enter your address"></textarea>
 
-            <label for="incident">Description of Incident:</label>
-            <textarea id="incident" name="incident" placeholder="Describe the incident"></textarea>
+            <label for="incident_description">Description of Incident:</label>
+            <textarea id="incident_description" name="incident_description" placeholder="Describe the incident"></textarea>
 
-            <label for="date">Date of Incident:</label>
-            <input type="date" id="date" name="incident_date">
+            <label for="incident_date">Date of Incident:</label>
+            <input type="date" id="incident_date" name="incident_date">
 
             <button type="submit">Submit FIR</button>
         </form>

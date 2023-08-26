@@ -1,5 +1,7 @@
 
+
 <!DOCTYPE html>
+
 <html lang="en">
 
 <head>
@@ -112,7 +114,8 @@
 <body>
     <div class="logoutbtn-cont">
         <div class="logoutbtn">
-            <a href="../Login/login.html"><span>Logout</span></a>
+            <a href="../SOS/logout.php"><span>Logout</span></a>
+            
         </div>
     </div>
     <style>
@@ -159,7 +162,7 @@
             <span><a href="..\Features\features.php">Features</a></span>
         </div>
         <div class="round3">
-            <span>Danger Zone</span>
+            <a href="../SOS/Danger.php"><span>Danger Zone</span></a>
         </div>
     </div>
 

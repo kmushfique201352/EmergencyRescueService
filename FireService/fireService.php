@@ -9,56 +9,44 @@
 
 <script>
     function initMap() {
-        const myLocation = {lat: 40.730610, lng: -73.935242};
+        const uiuLocation = {lat: 23.7978829, lng: 90.44971};  // Coordinates for UIU Permanent Campus
+        const fireStationLocation = {lat: 23.7979673, lng: 90.4241668};  // Coordinates for FireStation
         
         const map = new google.maps.Map(document.getElementById('map'), {
-            center: myLocation,
+            center: uiuLocation,
             zoom: 15
         });
 
+        // Create marker for UIU Permanent Campus location
+        new google.maps.Marker({
+            position: uiuLocation,
+            map: map,
+            title: 'UIU Permanent Campus, Madani avenue, Dhaka'
+        });
+
+        // Create marker for FireStation location
+        new google.maps.Marker({
+            position: fireStationLocation,
+            map: map,
+            title: 'FireStation'
+        });
+
+        // Draw a direct route from FireStation to UIU Permanent Campus
+        const directionsService = new google.maps.DirectionsService();
+        const directionsRenderer = new google.maps.DirectionsRenderer();
+        directionsRenderer.setMap(map);
+
         const request = {
-            location: myLocation,
-            radius: '5000',
-            type: ['fire_station']
+            origin: fireStationLocation,
+            destination: uiuLocation,
+            travelMode: 'DRIVING'
         };
 
-        const service = new google.maps.places.PlacesService(map);
-        service.nearbySearch(request, callback);
-
-        function callback(results, status) {
-            if (status === google.maps.places.PlacesServiceStatus.OK) {
-                for (let i = 0; i < results.length; i++) {
-                    createMarker(results[i]);
-                }
+        directionsService.route(request, function(result, status) {
+            if (status == 'OK') {
+                directionsRenderer.setDirections(result);
             }
-        }
-
-        function createMarker(place) {
-            const marker = new google.maps.Marker({
-                map: map,
-                position: place.geometry.location
-            });
-
-            google.maps.event.addListener(marker, 'click', function() {
-                const directionsService = new google.maps.DirectionsService();
-                const directionsRenderer = new google.maps.DirectionsRenderer();
-                directionsRenderer.setMap(map);
-                
-                const request = {
-                    origin: myLocation,
-                    destination: place.geometry.location,
-                    travelMode: 'DRIVING'
-                };
-
-                directionsService.route(request, function(result, status) {
-                    if (status == 'OK') {
-                        directionsRenderer.setDirections(result);
-                        const duration = result.routes[0].legs[0].duration.text;
-                        alert('Time required to reach: ' + duration);
-                    }
-                });
-            });
-        }
+        });
     }
     
     window.onload = initMap;

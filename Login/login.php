@@ -17,7 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (password_verify($password, $user['password_hash'])) {
             $_SESSION['user_id'] = $user['id'];
             $_SESSION['username'] = $user['username'];
-            header("Location: ../SOS/sos.html");
+            header("Location: ../SOS/sos.php");
             exit;
         } else {
             echo "Incorrect password!";

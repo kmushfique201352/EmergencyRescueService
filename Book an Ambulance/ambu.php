@@ -9,6 +9,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"
     && isset($_POST["booking_date"]) 
     && isset($_POST["booking_time"])) {
     
+    // Collect and sanitize user input
     $name = $_POST["name"];
     $address = $_POST["address"];
     $email = $_POST["email"];
@@ -18,23 +19,36 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"
     $booking_date = "$year-$month-$day";
     $booking_time = $_POST['booking_time'];
 
-    session_start();
-    $_SESSION['booking_temp'] = array(
-        'name' => $name,
-        'address' => $address,
-        'email' => $email,
-        'contact' => $contact,
-        'booking_date' => $booking_date,
-        'booking_time' => $booking_time
-    );
-    
-    header('Location: ../Book an Ambulance/insertBooking.php');
-    exit;
+    try {
+        // Prepare the SQL query
+        $sql = "INSERT INTO bookings (name, address, email, contact, booking_date, booking_time) VALUES (:name, :address, :email, :contact, :booking_date, :booking_time)";
+        $stmt = $conn->prepare($sql);
 
+        // Bind the parameters
+        $stmt->bindParam(':name', $name, PDO::PARAM_STR);
+        $stmt->bindParam(':address', $address, PDO::PARAM_STR);
+        $stmt->bindParam(':email', $email, PDO::PARAM_STR);
+        $stmt->bindParam(':contact', $contact, PDO::PARAM_STR);
+        $stmt->bindParam(':booking_date', $booking_date, PDO::PARAM_STR);
+        $stmt->bindParam(':booking_time', $booking_time, PDO::PARAM_STR);
+
+        // Execute the query
+        if($stmt->execute()) {
+            echo "New booking created successfully.";
+            header("Location: ../Book an Ambulance/insertBooking.php");
+        } else {
+            echo "Unable to create booking.";
+        }
+
+    } catch (PDOException $e) {
+        echo "Error: " . $e->getMessage();
+    }
+    
 } else {
     echo "Invalid form submission.";
 }
 ?>
+
 
 
 <!DOCTYPE html>
@@ -52,12 +66,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"
         <span>Rent an Ambulance</span>
     </div>
 
-    <?php if ($message): ?>
-        <div class="message"><?= htmlspecialchars($message) ?></div>
-    <?php endif; ?>
+    
 
     <div class="book">
-        <form action="insertBooking.php" method="post">
+        <form action="../Book an Ambulance/ambu.php" method="POST">
             <input type="text" name="name" placeholder="Name on" >
             <input type="text" name="address" placeholder="Address">
             <input type="text" name="email" placeholder="Email">
