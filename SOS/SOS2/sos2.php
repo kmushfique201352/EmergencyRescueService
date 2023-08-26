@@ -1,3 +1,20 @@
+<?php
+include '../../connection.php';  
+
+session_start();
+
+if(!isset($_SESSION['user_id'])) {
+    header('Location: login.php'); 
+    exit;
+}
+
+$userId = $_SESSION['user_id'];
+$stmt = $conn->prepare("SELECT username, location, photo,phn1,phn2,phn3 FROM USER WHERE id = ?");
+$stmt->execute([$userId]);
+$user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -19,12 +36,30 @@
     <div class="navi-cont">
         <div class="round">
             <div class="info">
-                <span class="name">Khaled Md. Mushfique</span>
-                <span class="address">801, 6D, Modhumoti, RUAP, Uttara, Dhaka,1230</span>
+                <span class="name"><?= $user['username'] ?></span>
+                <span class="address"><?= $user['location'] ?></span>
             </div>
-            <img src="../../images/img.jpg" alt="sample.jpg">
+            <img src="../<?= $user['photo'] ?>" alt="User Photo">
         </div>
     </div>
+    <style>
+        .navi-cont{
+        position: relative;
+        margin-bottom: 500px;
+        }
+        .round{
+            width: 300px;
+            background-color: #454955;
+            height: 55px;
+            border-radius: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); 
+            border: 1px solid #3c3f4a;
+        }
+        .round img{
+            position: absolute;
+            right: 0;
+        }
+    </style>
 
     <div class="navi-cont2">
         <div class="round2">
@@ -82,21 +117,21 @@
     </script>
 
     <div class="navi-cont3">
-        <span>01400249477</span>
+        <span><?= $user['phn1'] ?></span>
         <div class="round3">
             <img src="../../images/gps.png" alt="">
             <!-- <span><a href="#">...</a></span> -->
         </div>
     </div>
     <div class="navi-cont4">
-        <span>01400249477</span>
+        <span><?= $user['phn2'] ?></span>
         <div class="round4">
             <img src="../../images/gps.png" alt="">
             <!-- <span><a href="#">...</a></span> -->
         </div>
     </div>
     <div class="navi-cont5">
-        <span>01400249477</span>
+        <span><?= $user['phn3'] ?></span>
         <div class="round5">
             <img src="../../images/gps.png" alt="">
             <!-- <span><a href="#">...</a></span> -->

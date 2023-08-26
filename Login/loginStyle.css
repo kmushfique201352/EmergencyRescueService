@@ -27,10 +27,6 @@ body, h1, p {
   }
 
 
-
-/* ... [Your existing styles] ... */
-
-/* Login specific styles */
 .login-container {
     margin-left: 50px;
     width: fit-content;
@@ -57,6 +53,42 @@ body, h1, p {
     border-radius: 20px;
     flex-direction: column;
     gap: 15px;
+}
+.ai {
+    margin-top: 80px; 
+}
+
+.ai input {
+    width: 300px;
+    height: 15px;
+    padding: 3px ;
+    padding-left: 20px;
+    border-radius: 25px;
+    border-bottom: 1px solid black;
+    font-size: 14px;
+    background-color: transparent;
+    color: white;
+    placeholder-color: rgba(255, 255, 255, 0.7); 
+
+    transition: background-color 0.3s ease, transform 0.3s ease; 
+}
+
+.ai input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.ai input:focus {
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: scale(1.05); 
+    outline: none;
+}
+.response {
+    margin-top: 10px;
+    color: white;
+    background-color: #384878;
+    padding: 10px;
+    border-radius: 10px;
+    max-width: 200px;
 }
 
 .input-wrapper {
@@ -109,18 +141,18 @@ button {
     width: 100%;
     padding: 10px 20px;
     border-radius: 20px;
-    border: 2px solid black;  /* Increased border thickness */
+    border: 2px solid black;  
     cursor: pointer;
     background-color: #384878;
     color: white;
-    margin-top: 20px;   /* Added some top margin */
+    margin-top: 20px;  
     font-size: 16px;
-    transition: background-color 0.3s ease;  /* Added transition for smoother hover effect */
+    transition: background-color 0.3s ease;  
 }
 
 button:hover {
     background-color: #293145;
-    border-color: #fff;  /* Change border color on hover for a highlighting effect */
+    border-color: #fff; 
 }
 
 
@@ -131,4 +163,34 @@ button:hover {
     text-decoration: none;
     color: white;
     font-size: 14px;
+}
+
+.list{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    margin-top: 10px;
+    right: 0;
+    border-radius: 50px;
+    background-color: #f0f0f0;
+    width: 70px;
+    height: 30px;
+}
+.list span{
+
+}
+.hidden {
+    display: none;
+}
+
+
+#contactsList {
+    background-color: #f0f0f0;
+    border: 1px solid #aaa;
+    padding: 10px;
+    border-radius: 5px;
+    max-width: 300px;
+    margin-top: 20px;
 }

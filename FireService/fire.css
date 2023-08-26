@@ -25,7 +25,6 @@ body, h1, p {
     }
   }
   .image{
-    position: absolute;
     width: auto;
     overflow: hidden; 
     border-radius: 90px;
@@ -36,26 +35,47 @@ body, h1, p {
     align-items: center;
     width: auto;
     height: 180px;
-    margin-bottom: 300px;
 }
-.text{
-    margin-top: 20px;
-    font-size: 35px;
-    color: #f0f0f0;
-    text-align: center;
-}
-/* styles.css */
-.bloodbutton {
-    margin-top: 200px;
-    width: 70px;
-    height: 100px;
-    color: aliceblue;
+.part{
     position: absolute;
-    background-color: #a22e2e;
-    background-image: linear-gradient(90deg,#a22e2e,#a86c6c,#a22e2e);
-    background-size: 600% 600%;
-    animation: bgAnimatedGradient 2s infinite linear;
-    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+    top: 0;
+    margin-top: 450px; 
+    width: 300px;
+    height: 300px;
 }
+.part span{
+    margin-bottom: 20px;
+    font-size: 30px;
+    text-align: center;
+    color: #f0f0f0;
+}
+.part .base2{
+    display: flex;
+    /* margin-top: 300px; */
+    flex-direction: column;
+    text-align: center;
+    width: 130px;
+    border-radius: 20px;
+    height: 70px;
+    
+    background-image: linear-gradient(90deg,#3f4b6a,#e32b3b,#3f4b6a);
+    background-size: 200% 200%;
+    animation: bgAnimatedGradient 3s infinite linear;
 
-
+    justify-content: center;
+    align-items: center;
+}
+.part button{
+    width: 70px;
+    margin-bottom: 5px;
+    height: 20px;
+    border-radius: 20px;
+}
+.part .base2 button img{
+    width: 15px;
+    height: auto;
+}

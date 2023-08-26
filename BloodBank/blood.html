@@ -2,12 +2,32 @@
 <html lang="en">
 
 <head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="bloodstyle.css" />
     <title>SOS Mode</title>
-
+    <style>
+        .button-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        
+        .small-button {
+            margin: 5px;
+            border: none;
+            background-color: #3c3f4a;
+            color: white;
+            font-size: 14px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        
+        .small-button:hover {
+            background-color: #454955;
+        }
+        
+    </style>
 </head>
 
 <body>
@@ -17,14 +37,19 @@
     <div class="part">
         <div class="base1">
             <span>Looking for Blood</span>
-            <button><a href="../BloodBank/Looking for Blood/find.html"><img src="../images/right-arrow.png" alt="" ></a></button>
+            <button><a href="../BloodBank/Looking for Blood/find.php"><img src="../images/right-arrow.png" alt=""></a></button>
         </div>
         <div class="base2">
             <span>Donate Blood</span>
-            <button><a href="../BloodBank/Donate Blood/donate.html"><img src="../images/left-arrow.png" alt="" ></a></button>
+            <button><a href="../BloodBank/Donate Blood/donate.php"><img src="../images/left-arrow.png" alt=""></a></button>
+        </div>
+
+        <div class="button-container">
+            <!-- <button class="small-button" onclick="location.href='../BloodBank/Request.php'">Request</button> -->
+            <!-- <button class="small-button" onclick="location.href='#History'">History</button> -->
+            <!-- <button class="small-button" onclick="location.href='#Message'">Message</button> -->
         </div>
     </div>
-
 </body>
 
 </html>

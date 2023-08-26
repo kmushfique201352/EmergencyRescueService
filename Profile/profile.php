@@ -1,33 +1,49 @@
 <?php
 include '../connection.php';
 
-if (isset($_POST['submit'])) {
-    session_start();
-    if(!isset($_SESSION['user_id'])) {
-        echo "User not logged in or session expired!";
-        exit;
+session_start();
+
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_SESSION['temp'])) {
+    
+    $username = $_SESSION['temp']['username'];
+    $email = $_SESSION['temp']['email'];
+    $phone = $_SESSION['temp']['phone'];
+    $hashed_password = $_SESSION['temp']['hashed_password'];
+
+    $bloodType = $_POST["bloodType"];
+    $height = $_POST["height"];
+    $weight = $_POST["weight"];
+    $location = $_POST["location"];
+    
+    $photoPath = "";
+    $gender = $_POST["gender"];
+    $phn1 = $_POST["phn1"];
+    $phn2 = $_POST["phn2"];
+    $phn3 = $_POST["phn3"];
+
+    if (isset($_FILES['photo']) && $_FILES['photo']['error'] === UPLOAD_ERR_OK) {
+        $uploadDir = '../images/';
+        $uploadFile = $uploadDir . basename($_FILES['photo']['name']);
+        
+        if (move_uploaded_file($_FILES['photo']['tmp_name'], $uploadFile)) {
+            $photoPath = $uploadFile;
+        } else {
+            echo "File could not be uploaded.";
+            exit;
+        }
     }
-
-    $userID = $_SESSION['user_id']; 
-    $bloodType = isset($_POST['bloodType']) ? $_POST['bloodType'] : null;
-    $height = isset($_POST['height']) ? $_POST['height'] : null;
-    $weight = isset($_POST['weight']) ? $_POST['weight'] : null;
-    $location = isset($_POST['location']) ? $_POST['location'] : null;
-    $gender = isset($_POST['gender']) ? $_POST['gender'] : null;
-    $phn1 = isset($_POST['phn1']) ? $_POST['phn1'] : null;
-    $phn2 = isset($_POST['phn2']) ? $_POST['phn2'] : null;
-    $phn3 = isset($_POST['phn3']) ? $_POST['phn3'] : null;
-    $photoPath = isset($_POST['photo']) ? $_POST['photo'] : null;
-
+    
     try {
-        $sql = "INSERT INTO userinfo (id, bloodType, height, weight, location, photo, gender, phn1, phn2, phn3) 
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-        $stmt = $pdo->prepare($sql);
-        $stmt->execute([$userID, $bloodType, $height, $weight, $location, $photoPath, $gender, $phn1, $phn2, $phn3]);
-
-        echo "Data saved successfully!";
+        $stmt = $conn->prepare("INSERT INTO user (username, email, phoneNumber, password_hash, bloodType, height, weight, location, photo, gender, phn1, phn2, phn3) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+        $stmt->execute([$username, $email, $phone, $hashed_password, $bloodType, $height, $weight, $location, $photo, $gender, $phn1, $phn2, $phn3]);
+        
+        unset($_SESSION['temp']);  
+        header('Location: ../SOS/sos.html');
+        exit;
     } catch(PDOException $e) {
         echo "Error: " . $e->getMessage();
     }
+} else {
+    echo "Invalid form submission or session data missing.";
 }
 ?>

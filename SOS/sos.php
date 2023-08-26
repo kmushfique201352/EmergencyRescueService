@@ -1,11 +1,17 @@
 
+
 <!DOCTYPE html>
+
 <html lang="en">
 
 <head>
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+
     <link rel="stylesheet" href="../SOS/sosStyle.css" />
     <title>SOS Mode</title>
     <script>
@@ -29,7 +35,7 @@
                         h3Element.innerText = originalH3Text;
                         h2Element.parentElement.classList.remove('button-pressed1');
 
-                        window.location.href = "SOS2/sos2.html";
+                        window.location.href = "SOS2/sos2.php";
                     }
                 }, 1000); 
             });
@@ -65,6 +71,40 @@
                     button.classList.remove("button-pressed5");
                 }, 5000);
             });
+
+
+            if ("geolocation" in navigator) {
+                navigator.geolocation.getCurrentPosition(function(position) {
+                    
+                }, function(error) {
+                    
+                    if (error.code == error.PERMISSION_DENIED) {
+                        document.querySelector(".geo .span2").style.color = "red";
+                        document.querySelector(".geo .span2").innerText = "OFF";
+                    }
+                });
+            } else {
+                
+                document.querySelector(".geo .span2").style.color = "red";
+                document.querySelector(".geo .span2").innerText = "OFF";
+            }
+        
+           
+            if (!navigator.onLine) {
+                document.querySelector(".wifi .span2").style.color = "red";
+                document.querySelector(".wifi .span2").innerText = "Inactive";
+            }
+        
+            
+            window.addEventListener("offline", function() {
+                document.querySelector(".wifi .span2").style.color = "red";
+                document.querySelector(".wifi .span2").innerText = "Inactive";
+            });
+        
+            window.addEventListener("online", function() {
+                document.querySelector(".wifi .span2").style.color = "green";
+                document.querySelector(".wifi .span2").innerText = "Active";
+            });
             
         });
         
@@ -72,7 +112,33 @@
 </head>
 
 <body>
-    
+    <div class="logoutbtn-cont">
+        <div class="logoutbtn">
+            <a href="../SOS/logout.php"><span>Logout</span></a>
+            
+        </div>
+    </div>
+    <style>
+        .logoutbtn-cont{
+            top: 0;
+            left: 0;
+            border: black 2px;
+            margin: 10px;
+            position: absolute;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #454955;
+            border-radius: 20px;
+            width: 50px;
+            height: 15px;
+          }
+          .navi-cont{
+            position: absolute;
+            margin-bottom: 510px;
+            }
+    </style>
+
     <div class="navi-cont">
         <div class="round"></div>
         <div class="geo">
@@ -93,10 +159,10 @@
 
     <div class="navi-cont2">
         <div class="round2">
-            <span><a href="..\Features\feature.html">Features</a></span>
+            <span><a href="..\Features\features.php">Features</a></span>
         </div>
         <div class="round3">
-            <span>Danger Zone</span>
+            <a href="../SOS/Danger.php"><span>Danger Zone</span></a>
         </div>
     </div>
 

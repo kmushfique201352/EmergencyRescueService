@@ -1,7 +1,8 @@
 <?php
-include '../connection.php';
+include '../connection.php'; 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["username"]) && isset($_POST["email"]) && isset($_POST["phone"]) && isset($_POST["password"]) && isset($_POST["repeat_password"])) {
+    
     $username = $_POST["username"];
     $email = $_POST["email"];
     $phone = $_POST["phone"];
@@ -13,19 +14,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["username"]) && isset($
         exit;
     }
 
-    $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+    session_start();
+    $_SESSION['temp'] = array(
+        'username' => $username,
+        'email' => $email,
+        'phone' => $phone,
+        'hashed_password' => password_hash($password, PASSWORD_DEFAULT)
+    );
+    
+    header('Location: ../Profile/profile.html');
+    exit;
 
-    $stmt = $conn->prepare("INSERT INTO user (username, email, phoneNumber, password_hash) VALUES (?, ?, ?, ?)");
-    $stmt->bind_param("ssss", $username, $email, $phone, $hashed_password);
-
-    if ($stmt->execute()) {
-        header('Location: ../Profile/profile.html'); 
-        exit;
-    } else {
-        echo "Error: " . $stmt->error;
-    }
-
-    $stmt->close();
+} else {
+    echo "Invalid form submission.";
 }
 ?>
- 

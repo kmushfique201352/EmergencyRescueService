@@ -1,0 +1,197 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    background-color: aqua;
+    color: white;
+    height: 100%;
+    width: 100%;
+    background-image: linear-gradient(90deg,#293145,#454955,#293145);
+    background-size: 600% 600%;
+    animation: bgAnimatedGradient 2s infinite linear;
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container{
+    display: flex;
+    height: fit-content;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.profile-heading{
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 16px;
+}
+
+.blood-height-weight-container{
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.input-field{
+    padding-left: 10px;
+    margin-bottom: 10px;
+    width: 300px;
+    height: 30px;
+    border: 1px solid black;
+    border-radius: 15px;
+    background-color: #293145;
+    font-size: 17px;
+}
+
+.Location-profile-picture-container{
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+}
+
+.addlocation-container{
+    width: 95px;
+    height: 65px;
+    font-size: 13px;
+    background-color: #757578a0;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.turn-on-off-btn{
+    width: 80px;
+    margin: 10px auto;
+    font-size: 12px;
+    position: relative;
+}
+
+.turnon-btn{
+    width: fit-content;
+    height: fit-content;
+    margin-left: 13px;
+    background-color: #293145c1;
+    border-radius: 10px;
+    
+}
+
+.turnon-btn button{
+    text-decoration: none;
+    color: white;
+    padding: 2px;
+    border-radius: 5px;
+    background-color: #293145c1;
+    position: absolute;
+    top: 0;
+}
+
+.turnoff-btn a{
+    text-decoration: none;
+    color: white;
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+}
+
+.profile-picture-container{
+    width: 95px;
+    height: 55px;
+    font-size: 9px;
+    background-color: #757578a0;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.camera-icon{
+    width: 30px;
+    color: #293145c1;
+}
+
+.gender-heading{
+    margin: 20px 0px;
+    font-size: 17px;
+}
+
+.type-of-gender {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.type-of-gender ul {
+    margin-bottom: 20px;
+}
+
+.type-of-gender ul li {
+    width: 110px;
+    height: 28px;
+    color: black;
+    font-size: 17px;
+    font-weight: bold;
+    background-color: #4556807c;
+    display: inline-block;
+    border-radius: 5px;
+    list-style-type: none;
+    text-align: center;
+    margin: 0px 5px;
+    position: relative; 
+}
+
+.type-of-gender .gender-btn {
+    display: none;
+}
+
+.type-of-gender ul li label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    cursor: pointer;
+    padding-top: 3px; 
+    width: 100%;
+    height: 100%;
+    display: block;
+    text-align: center;
+}
+
+.type-of-gender ul li:hover,
+.type-of-gender .gender-btn:checked + label {
+    background-color: white;
+}
+
+
+.emergency-contacts-heading{
+    margin-bottom: 15px;
+}
+
+.btn button{
+    font-size: 17px;
+    font-weight: bold;
+    text-decoration: none;
+    color: white;
+    width: 300px;
+    height: 30px;
+    background-color: #455680ab;
+    border-radius: 10px;
+    text-align: center;
+    margin: 20px auto 80px;
+    padding-top: 4px;
+}

@@ -8,16 +8,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $sql = "SELECT * FROM user WHERE username = ?";
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("s", $username);
-    $stmt->execute();
+    
+    $stmt->execute([$username]);
+    
+    $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    $result = $stmt->get_result();
-
-    if ($user = $result->fetch_assoc()) {
+    if ($user) {
         if (password_verify($password, $user['password_hash'])) {
             $_SESSION['user_id'] = $user['id'];
             $_SESSION['username'] = $user['username'];
-            header("Location: ../SOS/sos.html");
+            header("Location: ../SOS/sos.php");
             exit;
         } else {
             echo "Incorrect password!";
